@@ -47,3 +47,20 @@ plt.xlabel("Survived")
 plt.ylabel("Count")
 plt.legend(title="Seatbelt")
 plt.show()
+
+# See how many people who used helmet and seatbelt survived
+plt.figure(figsize=(10, 6))
+sns.countplot(x="Survived", hue="Helmet_Used", data=df[df["Seatbelt_Used"] == "Yes"])
+plt.title("Survival Count by Helmet and Seatbelt")
+plt.xlabel("Survived")
+plt.ylabel("Count")
+plt.legend(title="Helmet")
+plt.show()
+
+# see how speed of impact affects survival
+plt.figure(figsize=(10, 6))
+sns.histplot(df[df["Survived"] == 0]["Speed_of_Impact"], bins=60)
+plt.title("Speed of Impact Distribution for Non-Survivors")
+plt.xlabel("Speed of Impact")
+plt.ylabel("Count")
+plt.show()
